@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Radio Button Example</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+h1 {
+  text-align: center;
+}
+.each-card {
+    width: 240px;
+    height: 330px;
+    display: flex;
+    background-color: rgb(183, 142, 38);
+    text-align: center;
+    align-items: center;
+    border-radius: 7px;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .each-card h1 {
+    color: black;
+    font-size: 30px;
+  }
+  
+  .each-card img {
+    margin-top: 3px;
+    width: 230px;
+  }
+  .all-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    /* padding-top: 10px; */
+  }
+  .btn-btn-secondary {
+    color: black;
+  }
+  a:hover {
+  text-decoration: dashed;
+}
+
+</style>
+</head>
+<body style="background-color: #e38b18;">
+<h1>groupie tracker </h1>
+<div class="all-cards">
+  {{ range .}}
+  <div class="each-card">
+    <img src="{{.Image}}"/>
+   
+    <a href="/band?name={{.Name}}" class="btn-btn-secondary"> <h1 >{{.Name}}</h1></a>
+
+  </div>
+  {{ end }}
+</div>
+
+
+<form action="/" method="post">
+  
+</form>
+<br><br><br>
+</body>
+</html>

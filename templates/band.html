@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Artist Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="background-color: #e38b18;">
+    <h1 style="color:#6ad5cb; text-align:center; font-family: 'Dela Gothic One', cursive;">G R O U P I E - T R A C K E R
+    </h1>
+    <!-- div for the image and the name --> 
+    <div class="bandImage">
+        <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}" class="img-fluid"></img>
+        <br>
+        <h1 id="artistname">{{.Artist.Name}}</h1>
+    </div>
+    <!-- div for the members -->
+     <div class="memberList">
+        <h2>Members:</h2>
+        <ul style="padding-left:8px;">
+            {{range .Artist.Members}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div> 
+    <!-- div for the vreatio  date and first album -->
+    <div class="n">
+        <p style="position: relative;left:5%; font-size: 20px; display: inline-block;">
+            <b>Creation date:</b> {{.Artist.CreationDate}} <br><br> <b>First album release:</b> {{.Artist.FirstAlbum}}
+        </p>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <h2 class="card-title" style="font-family: Georgia, serif;">Upcoming Concerts:</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="font-family: Georgia, serif;  font-weight: lighter; font-size: 22px;">Location</th>
+                <th style="font-family: Georgia, serif;  font-weight: lighter; font-size: 22px;">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range $location, $dates := .Relation.DatesLocations}}
+              <tr>
+                <td><strong style="color: rgb(20, 6, 6); font-family: Georgia, serif;  font-weight: lighter; font-size: 20px;">{{$location}}</strong></td>
+                <td>
+                  <ul>
+                    {{range $index, $date := $dates}}
+                    <li><span style="color: rgb(14, 6, 6); font-family: Georgia, serif;  font-weight: lighter; font-size: 20px;">{{$date}}</span></li>
+                    {{end}}
+                  </ul>
+                </td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+</body>
